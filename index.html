@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP Mariage Mariangeles & Nicolas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Montserrat:wght@300;400;500&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --olive: #556B2F;
+            --sage: #8A9A5B;
+            --champagne: #F7E7CE;
+            --white: #FFFFFF;
+            --terracotta: #E2725B;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--champagne);
+            color: var(--olive);
+            position: relative;
+        }
+        
+        /* Overlay pour l'arrière-plan */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23556B2F' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-color: rgba(247, 231, 206, 0.7);
+            z-index: -1;
+        }
+        
+        /* Ajout d'éléments décoratifs en arrière-plan */
+        .bg-decoration {
+            position: fixed;
+            z-index: -1;
+        }
+        
+        .bg-decoration-1 {
+            top: 10%;
+            left: 5%;
+            width: 300px;
+            height: 300px;
+            background-color: var(--sage);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        .bg-decoration-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 250px;
+            height: 250px;
+            background-color: var(--terracotta);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Amatic SC', cursive;
+            color: var(--olive);
+        }
+        
+        .script-font {
+            font-family: 'Dancing Script', cursive;
+            color: var(--terracotta);
+        }
+        
+        .boho-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--sage);
+        }
+        
+        .boho-input {
+            border: 2px solid var(--sage);
+            background-color: #fffaf5;
+            transition: all 0.3s ease;
+        }
+        
+        .boho-input:focus {
+            border-color: var(--olive);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(85, 107, 47, 0.2);
+        }
+        
+        .boho-button {
+            background-color: var(--olive);
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .boho-button:hover {
+            background-color: var(--sage);
+            transform: translateY(-2px);
+        }
+        
+        .heart-divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+        }
+        
+        .heart-divider::before, .heart-divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid var(--sage);
+        }
+        
+        .heart-divider span {
+            padding: 0 1rem;
+            color: var(--terracotta);
+        }
+        
+        .radio-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .radio-option:hover {
+            background-color: #fffaf5;
+        }
+        
+        .radio-option input {
+            margin-right: 0.75rem;
+        }
+        
+        .floral-decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.15;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-out {
+            animation: fadeOut 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(10px); }
+        }
+        
+        .boho-decoration {
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .price-card {
+            background-color: #fff9f0;
+            border: 2px dashed var(--sage);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .calculator-section {
+            background-color: #fff9f0;
+            border-radius: 12px;
+            border: 2px solid var(--sage);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculator-section::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background-color: var(--champagne);
+            border-radius: 50%;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .calculator-section::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 80px;
+            height: 80px;
+            background-color: var(--sage);
+            border-radius: 50%;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .feather-pattern {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .number-input {
+            position: relative;
+        }
+        
+        .number-input button {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: var(--sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+        }
+        
+        .number-input button:hover {
+            background-color: var(--olive);
+            color: white;
+        }
+        
+        .number-input .decrement {
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .number-input .increment {
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .gift-message {
+            background-color: var(--champagne);
+            border-left: 4px solid var(--terracotta);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+        
+        .gift-message::before {
+            content: "❤";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background-color: var(--terracotta);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        /* Ajout pour l'arrière-plan photo */
+        .photo-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.2;
+            z-index: -2;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-8 px-4">
+    <!-- Éléments décoratifs d'arrière-plan -->
+    <div class="bg-decoration bg-decoration-1"></div>
+    <div class="bg-decoration bg-decoration-2"></div>
+    
+    <!-- Emplacement pour votre photo d'arrière-plan -->
+    <div class="photo-background"></div>
+    
+    <!-- Décorations florales -->
+    <svg class="floral-decoration top-0 left-0 w-64 h-64" viewBox="0 0 200 200">
+        <path d="M50,10 Q100,50 150,10 Q100,100 150,190 Q100,150 50,190 Q100,100 50,10" fill="#8A9A5B" />
+    </svg>
+    <svg class="floral-decoration bottom-0 right-0 w-64 h-64" viewBox="0 0 200 200">
+        <path d="M50,10 Q100,50 150,10 Q100,100 150,190 Q100,150 50,190 Q100,100 50,10" fill="#E2725B" />
+    </svg>
+
+    <div class="max-w-3xl mx-auto">
+        <!-- En-tête -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl mb-2">♥ Mariage de Mariangeles & Nicolas ♥</h1>
+            <div class="script-font text-2xl mb-2">Église L'Ange-Gardien</div>
+            <div class="script-font text-2xl mb-2">4 octobre 2025</div>
+            <div class="script-font text-2xl mb-6">14h00</div>
+        </div>
+
+        <!-- Formulaire principal -->
+        <div class="boho-card p-6 md:p-8 relative overflow-hidden">
+            <div class="text-center mb-8">
+                <div class="heart-divider">
+                    <span>♥</span>
+                </div>
+                
+                <p class="mb-6 max-w-2xl mx-auto">
+                    Nous sommes ravis de partager ce jour si spécial avec les personnes qui comptent le plus pour nous. 
+                    Votre présence signifierait énormément alors que nous entamons ce merveilleux chapitre ensemble.
+                </p>
+                <p class="mb-6 max-w-2xl mx-auto">
+                    Merci de nous faire savoir si vous pourrez être des nôtres en remplissant le formulaire ci-dessous. 
+                    Nous avons hâte de célébrer avec vous !
+                </p>
+            </div>
+            
+            <!-- Formulaire RSVP avec FormSubmit -->
+            <form id="rsvpForm" action="https://formsubmit.co/mariagenicketmaria@gmail.com" method="POST" class="space-y-6">
+                <!-- Champs cachés pour FormSubmit -->
+                <input type="hidden" name="_subject" value="Nouvelle réponse RSVP - Mariage Mariangeles & Nicolas">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
+                <div>
+                    <label for="email" class="block mb-2">♥ Courriel <span class="text-red-500">*</span></label>
+                    <input type="email" id="email" name="email" class="boho-input w-full p-3 rounded-lg" required>
+                    <p class="text-xs text-gray-500 mt-1">Ce formulaire enregistre les courriels.</p>
+                </div>
+                
+                <div>
+                    <label for="name" class="block mb-2">♥ Votre Nom <span class="text-red-500">*</span></label>
+                    <input type="text" id="name" name="name" class="boho-input w-full p-3 rounded-lg" required>
+                </div>
+                
+                <div>
+                    <label class="block mb-2">♥ Est-ce que vous serez avec nous pour ce jour si spécial ? <span class="text-red-500">*</span></label>
+                    <div class="radio-container">
+                        <label class="radio-option">
+                            <input type="radio" name="attendance" value="Oui, avec grand plaisir !" required>
+                            Oui, avec grand plaisir !
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="attendance" value="Malheureusement, je ne pourrai pas être présent(e).">
+                            Malheureusement, je ne pourrai pas être présent(e).
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Message de cadeau de mariage -->
+                <div class="gift-message mt-6">
+                    <p>
+                        Merci de votre présence à notre journée spéciale. Si vous souhaitez nous offrir un cadeau de mariage, nous apprécierons grandement une contribution financière.
+                    </p>
+                </div>
+                
+                <!-- Section conditionnelle pour les invités qui viennent -->
+                <div id="attendingSection" class="space-y-6 hidden fade-in">
+                    <div>
+                        <label for="guest" class="block mb-2">♥ Si vous venez accompagné(e), merci de nous indiquer le prénom de votre invité(e) :</label>
+                        <input type="text" id="guest" name="guest" class="boho-input w-full p-3 rounded-lg">
+                    </div>
+                    
+                    <div>
+                        <label for="song" class="block mb-2">🎵 Dites-nous une chanson qui vous fera danser – on essaiera de la passer pour vous !</label>
+                        <input type="text" id="song" name="song" class="boho-input w-full p-3 rounded-lg">
+                    </div>
+                    
+                    <div>
+                        <label for="contact" class="block mb-2">✉️ Partagez votre numéro de téléphone pour que nous puissions vous contacter si nécessaire :</label>
+                        <input type="text" id="contact" name="contact" class="boho-input w-full p-3 rounded-lg">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block mb-2">♥ Y a-t-il autre chose que nous devrions savoir pour rendre votre expérience inoubliable ? Dites-le-nous !</label>
+                        <textarea id="message" name="message" rows="3" class="boho-input w-full p-3 rounded-lg"></textarea>
+                    </div>
+                    
+                    <!-- Calculateur d'invitations - Section améliorée -->
+                    <div class="pt-4">
+                        <div class="heart-divider">
+                            <span>♥</span>
+                        </div>
+                        
+                        <h2 class="text-4xl text-center mb-6">Calculateur d'Invitations</h2>
+                        
+                        <!-- Tarifs avec style boho -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            <div class="price-card p-6 text-center relative overflow-hidden">
+                                <div class="absolute -top-4 -right-4 w-16 h-16 bg-[#F7E7CE] rounded-full opacity-50"></div>
+                                <h3 class="text-2xl mb-2">Adultes</h3>
+                                <p class="text-sm mb-2">(12 ans et plus)</p>
+                                <div class="text-3xl font-bold mb-2">100$</div>
+                                <p class="text-xs">par personne</p>
+                            </div>
+                            
+                            <div class="price-card p-6 text-center relative overflow-hidden">
+                                <div class="absolute -top-4 -left-4 w-16 h-16 bg-[#F7E7CE] rounded-full opacity-50"></div>
+                                <h3 class="text-2xl mb-2">Enfants</h3>
+                                <p class="text-sm mb-2">(11 ans et moins)</p>
+                                <div class="text-3xl font-bold mb-2">30$</div>
+                                <p class="text-xs">par enfant</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Calculateur interactif -->
+                        <div class="calculator-section p-6 mb-8 relative">
+                            <svg class="feather-pattern top-4 right-4" viewBox="0 0 24 24">
+                                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" fill="#8A9A5B"/>
+                                <line x1="16" y1="8" x2="2" y2="22" stroke="#8A9A5B" stroke-width="2"/>
+                                <line x1="17.5" y1="15" x2="9" y2="15" stroke="#8A9A5B" stroke-width="2"/>
+                            </svg>
+                            
+                            <h3 class="text-2xl mb-4 text-center">Nombre d'invités</h3>
+                            
+                            <div class="space-y-6 relative z-10">
+                                <div>
+                                    <label for="adultes" class="block mb-2">Nombre d'adultes (12 ans et plus)</label>
+                                    <div class="number-input relative">
+                                        <button type="button" class="decrement" id="decrementAdults">-</button>
+                                        <input type="number" id="adultes" name="adultes" min="0" value="1" 
+                                            class="boho-input w-full p-3 rounded-lg text-center" required>
+                                        <button type="button" class="increment" id="incrementAdults">+</button>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="enfants" class="block mb-2">Nombre d'enfants (11 ans et moins)</label>
+                                    <div class="number-input relative">
+                                        <button type="button" class="decrement" id="decrementChildren">-</button>
+                                        <input type="number" id="enfants" name="enfants" min="0" value="0" 
+                                            class="boho-input w-full p-3 rounded-lg text-center" required>
+                                        <button type="button" class="increment" id="incrementChildren">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Récapitulatif avec style boho -->
+                        <div class="p-6 bg-[#F7E7CE] rounded-lg border-2 border-[#8A9A5B] mt-6 relative overflow-hidden">
+                            <div class="absolute -bottom-8 -right-8 w-24 h-24 bg-[#8A9A5B] rounded-full opacity-10"></div>
+                            <div class="absolute -top-8 -left-8 w-20 h-20 bg-[#E2725B] rounded-full opacity-10"></div>
+                            
+                            <h3 class="text-2xl mb-4 text-center">Récapitulatif</h3>
+                            <div class="space-y-3 mb-4 relative z-10">
+                                <div class="flex justify-between items-center">
+                                    <span class="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-[#556B2F]" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                        </svg>
+                                        Adultes:
+                                    </span>
+                                    <span id="recapAdultes" class="font-medium">1 × 100$ = 100$</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-[#556B2F]" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                        </svg>
+                                        Enfants:
+                                    </span>
+                                    <span id="recapEnfants" class="font-medium">0 × 30$ = 0$</span>
+                                </div>
+                                <div class="border-t-2 border-[#8A9A5B] pt-3 mt-3"></div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg font-bold">Total:</span>
+                                    <span id="recapTotal" class="text-lg font-bold">100$</span>
+                                </div>
+                                <!-- Champ caché pour envoyer le total -->
+                                <input type="hidden" id="totalAmount" name="totalAmount" value="100$">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section pour les invités qui ne viennent pas -->
+                <div id="notAttendingSection" class="space-y-6 hidden fade-in">
+                    <div>
+                        <label for="notAttendingMessage" class="block mb-2">♥ Nous sommes désolés que vous ne puissiez pas être présent(e). Souhaitez-vous nous laisser un message ?</label>
+                        <textarea id="notAttendingMessage" name="notAttendingMessage" rows="3" class="boho-input w-full p-3 rounded-lg"></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" id="submitRSVP" class="boho-button w-full py-3 px-6 rounded-lg text-lg flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Confirmer ma réponse
+                </button>
+                
+                <p class="text-center text-sm text-gray-600 mt-4">
+                    En cliquant sur "Confirmer ma réponse", vos informations seront envoyées aux mariés par email à mariagenicketmaria@gmail.com
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Éléments du DOM
+            const adultsInput = document.getElementById('adultes');
+            const childrenInput = document.getElementById('enfants');
+            const recapAdultes = document.getElementById('recapAdultes');
+            const recapEnfants = document.getElementById('recapEnfants');
+            const recapTotal = document.getElementById('recapTotal');
+            const totalAmountInput = document.getElementById('totalAmount');
+            const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
+            const attendingSection = document.getElementById('attendingSection');
+            const notAttendingSection = document.getElementById('notAttendingSection');
+            const incrementAdults = document.getElementById('incrementAdults');
+            const decrementAdults = document.getElementById('decrementAdults');
+            const incrementChildren = document.getElementById('incrementChildren');
+            const decrementChildren = document.getElementById('decrementChildren');
+            
+            // Fonction pour calculer et mettre à jour le total
+            function updateTotal() {
+                const adultsCount = parseInt(adultsInput.value) || 0;
+                const childrenCount = parseInt(childrenInput.value) || 0;
+                
+                const adultsPrice = adultsCount * 100;
+                const childrenPrice = childrenCount * 30;
+                const total = adultsPrice + childrenPrice;
+                
+                recapAdultes.textContent = `${adultsCount} × 100$ = ${adultsPrice}$`;
+                recapEnfants.textContent = `${childrenCount} × 30$ = ${childrenPrice}$`;
+                recapTotal.textContent = `${total}$`;
+                totalAmountInput.value = `${total}$`;
+            }
+            
+            // Écouteurs d'événements pour les boutons d'incrémentation/décrémentation
+            incrementAdults.addEventListener('click', function() {
+                adultsInput.value = (parseInt(adultsInput.value) || 0) + 1;
+                updateTotal();
+            });
+            
+            decrementAdults.addEventListener('click', function() {
+                const currentValue = parseInt(adultsInput.value) || 0;
+                if (currentValue > 0) {
+                    adultsInput.value = currentValue - 1;
+                    updateTotal();
+                }
+            });
+            
+            incrementChildren.addEventListener('click', function() {
+                childrenInput.value = (parseInt(childrenInput.value) || 0) + 1;
+                updateTotal();
+            });
+            
+            decrementChildren.addEventListener('click', function() {
+                const currentValue = parseInt(childrenInput.value) || 0;
+                if (currentValue > 0) {
+                    childrenInput.value = currentValue - 1;
+                    updateTotal();
+                }
+            });
+            
+            // Écouteurs d'événements pour les champs de saisie
+            adultsInput.addEventListener('input', updateTotal);
+            childrenInput.addEventListener('input', updateTotal);
+            
+            // Écouteur pour les boutons radio de présence
+            attendanceRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === "Oui, avec grand plaisir !") {
+                        attendingSection.classList.remove('hidden');
+                        notAttendingSection.classList.add('hidden');
+                    } else {
+                        attendingSection.classList.add('hidden');
+                        notAttendingSection.classList.remove('hidden');
+                    }
+                });
+            });
+            
+            // Initialiser l'affichage
+            updateTotal();
+        });
+    </script>
+</body>
+</html>
